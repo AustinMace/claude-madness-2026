@@ -33,6 +33,9 @@
   --winner-bg: rgba(52,211,153,0.08);
   --loser: #444460;
   --upset-gold: #fbbf24;
+  --basketball-orange: #ee6730;
+  --basketball-brown: #8B4513;
+  --court-wood: rgba(139, 90, 43, 0.08);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -253,13 +256,216 @@ footer .sources{max-width:700px;margin:0 auto;}
   .data-panel{padding:16px 18px;}
   .method-grid{grid-template-columns:1fr;}
 }
+
+/* ─── Basketball Theming ─── */
+
+/* Animated basketball emoji */
+.basketball-spin {
+  display: inline-block;
+  font-size: 2.5rem;
+  animation: ballBounce 2s ease-in-out infinite;
+  vertical-align: middle;
+  line-height: 1;
+}
+.basketball-spin.delay {
+  animation-delay: 0.3s;
+}
+@keyframes ballBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(180deg); }
+}
+
+/* Hero diagonal stripe banner */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 40px,
+    rgba(124, 111, 247, 0.03) 40px,
+    rgba(124, 111, 247, 0.03) 80px
+  );
+  pointer-events: none;
+}
+
+/* Court wood texture on bracket areas */
+.bracket-full {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(139, 90, 43, 0.03) 0px,
+      rgba(139, 90, 43, 0.06) 2px,
+      rgba(139, 90, 43, 0.02) 4px,
+      transparent 6px,
+      transparent 30px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(160, 110, 60, 0.04) 0px,
+      transparent 1px,
+      transparent 60px
+    );
+  border-radius: 12px;
+}
+
+/* Strategy card accent bar: basketball orange to gold gradient */
+.strategy-card::before {
+  background: linear-gradient(90deg, var(--basketball-orange), var(--gold)) !important;
+}
+
+/* Free throw lane line on strategy cards */
+.strategy-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--basketball-orange), transparent);
+  opacity: 0.3;
+  border-radius: 0 0 16px 16px;
+}
+
+/* Net decoration on champion display */
+.bracket-center-winner {
+  position: relative;
+}
+.bracket-center-winner::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 20px;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      rgba(255,255,255,0.15) 2px,
+      rgba(255,255,255,0.15) 4px
+    );
+  border-radius: 0 0 20px 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-top: none;
+}
+
+/* Champion shimmer animation */
+.bracket-center-winner .trophy {
+  animation: champShimmer 3s ease-in-out infinite;
+}
+@keyframes champShimmer {
+  0% { text-shadow: 0 0 4px currentColor; }
+  50% { text-shadow: 0 0 16px currentColor, 0 0 30px rgba(245,166,35,0.3); }
+  100% { text-shadow: 0 0 4px currentColor; }
+}
+
+/* Three-point arc behind Final Four center */
+.bracket-center {
+  position: relative;
+}
+.bracket-center::before {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 80px;
+  border: 2px solid rgba(255,255,255,0.06);
+  border-radius: 0 0 80px 80px;
+  border-top: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Half-court line divider */
+.bracket-full-inner {
+  position: relative;
+}
+.bracket-full-inner::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(238, 103, 48, 0.15), var(--basketball-orange), rgba(238, 103, 48, 0.15), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Buzzer beater pulse on upset badges */
+.upset-badge {
+  background: rgba(238, 103, 48, 0.22) !important;
+  animation: buzzerBeater 1.5s ease-in-out infinite;
+}
+@keyframes buzzerBeater {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4); }
+  50% { box-shadow: 0 0 0 4px rgba(251, 191, 36, 0); }
+}
+
+/* Basketball orange LIVE dots */
+.feed-dot {
+  background: var(--basketball-orange) !important;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(238, 103, 48, 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(238, 103, 48, 0); }
+}
+
+/* Feed link hover with basketball orange */
+.feed-link:hover {
+  border-color: var(--basketball-orange);
+}
+.feed-link:hover .feed-link-arrow {
+  color: var(--basketball-orange);
+}
+
+/* Tab button basketball texture on hover */
+.tab-btn:hover {
+  background: radial-gradient(circle at 30% 50%, rgba(238,103,48,0.08), transparent 60%), var(--surface);
+}
+
+/* Region labels with basketball orange accent */
+.bracket-half .region-label {
+  color: var(--basketball-orange) !important;
+  text-shadow: 0 0 12px rgba(238, 103, 48, 0.2);
+}
+
+/* Team row court-glow hover */
+.team-row:hover {
+  background: rgba(238, 103, 48, 0.06);
+}
+.team-row.winner:hover {
+  background: rgba(238, 103, 48, 0.08);
+}
+
+/* Winner rows get a subtle basketball accent */
+.team-row.winner .seed::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: var(--basketball-orange);
+  border-radius: 50%;
+  margin-right: 2px;
+  vertical-align: middle;
+  opacity: 0.7;
+}
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <header class="hero">
-  <h1>CLAUDE MADNESS 2026</h1>
+  <h1><span class="basketball-spin">&#127936;</span> CLAUDE MADNESS 2026 <span class="basketball-spin delay">&#127936;</span></h1>
   <p class="subtitle">AI-Powered Bracket Intelligence</p>
   <div class="fan-badges">
     <span class="fan-badge purdue">Boilermakers Fan</span>
@@ -270,7 +476,7 @@ footer .sources{max-width:700px;margin:0 auto;}
 <!-- METHODOLOGY -->
 <div class="container methodology">
   <details>
-    <summary>How We Built This &mdash; AI Methodology &amp; Data Sources</summary>
+    <summary>&#127936; How We Built This &mdash; AI Methodology &amp; Data Sources</summary>
     <div class="method-body">
 
       <div class="method-category">
@@ -695,7 +901,7 @@ footer .sources{max-width:700px;margin:0 auto;}
 
 <!-- LIVE FEED -->
 <section class="live-feed">
-  <h2>LIVE MARCH MADNESS FEED</h2>
+  <h2>&#127936; LIVE MARCH MADNESS FEED &#127936;</h2>
   <div class="feed-grid">
     <div class="feed-card">
       <div class="feed-card-header"><span class="feed-dot"></span> Live Scores &amp; Bracket</div>
