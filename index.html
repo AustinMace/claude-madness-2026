@@ -6,7 +6,7 @@
 <title>CLAUDE MADNESS 2026</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
-:root {
+:root, [data-theme="dark"] {
   --bg: #08080d;
   --surface: #101018;
   --surface2: #181824;
@@ -36,7 +36,55 @@
   --basketball-orange: #ee6730;
   --basketball-brown: #8B4513;
   --court-wood: rgba(139, 90, 43, 0.08);
+  --hero-gradient: linear-gradient(135deg,#fff 0%,#a78bfa 40%,#f5a623 100%);
+  --tab-bar-bg: rgba(8,8,13,0.92);
+  --theme-toggle-bg: var(--surface2);
+  --theme-toggle-border: var(--border);
 }
+[data-theme="light"] {
+  --bg: #f4f1ec;
+  --surface: #ffffff;
+  --surface2: #f0ede6;
+  --surface3: #e6e2da;
+  --border: #d4cfc5;
+  --border-light: #bfb9ad;
+  --text: #1a1814;
+  --text-dim: #5c5647;
+  --text-muted: #8a8475;
+  --accent: #5b4fd4;
+  --accent-bright: #6c5ce7;
+  --accent-glow: rgba(91,79,212,0.15);
+  --gold: #d48b07;
+  --gold-dim: rgba(212,139,7,0.1);
+  --green: #16a34a;
+  --green-dim: rgba(22,163,74,0.08);
+  --red: #dc2626;
+  --red-dim: rgba(220,38,38,0.08);
+  --purdue-gold: #9a7d3a;
+  --purdue-glow: rgba(154,125,58,0.1);
+  --miami-red: #B61E2E;
+  --miami-glow: rgba(182,30,46,0.08);
+  --winner: #16a34a;
+  --winner-bg: rgba(22,163,74,0.06);
+  --loser: #b0a898;
+  --upset-gold: #b8860b;
+  --basketball-orange: #d4550a;
+  --basketball-brown: #6B3410;
+  --court-wood: rgba(139, 90, 43, 0.05);
+  --hero-gradient: linear-gradient(135deg,#1a1814 0%,#5b4fd4 40%,#d48b07 100%);
+  --tab-bar-bg: rgba(244,241,236,0.92);
+  --theme-toggle-bg: #fff;
+  --theme-toggle-border: #d4cfc5;
+}
+
+/* Theme toggle button */
+.theme-toggle{position:fixed;top:16px;right:16px;z-index:200;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--theme-toggle-border);background:var(--theme-toggle-bg);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.15);}
+.theme-toggle:hover{transform:scale(1.1);box-shadow:0 4px 16px rgba(0,0,0,0.25);}
+.theme-toggle .icon-sun,.theme-toggle .icon-moon{position:absolute;transition:opacity 0.3s,transform 0.3s;}
+[data-theme="dark"] .theme-toggle .icon-sun{opacity:1;transform:rotate(0deg);}
+[data-theme="dark"] .theme-toggle .icon-moon{opacity:0;transform:rotate(-90deg);}
+[data-theme="light"] .theme-toggle .icon-sun{opacity:0;transform:rotate(90deg);}
+[data-theme="light"] .theme-toggle .icon-moon{opacity:1;transform:rotate(0deg);}
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased;}
@@ -45,7 +93,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .hero{text-align:center;padding:60px 24px 40px;position:relative;overflow:hidden;}
 .hero::before{content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 60%);pointer-events:none;animation:heroPulse 6s ease-in-out infinite;}
 @keyframes heroPulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.08);}}
-.hero h1{font-size:clamp(2rem,6vw,3.5rem);font-weight:900;letter-spacing:-0.04em;background:linear-gradient(135deg,#fff 0%,#a78bfa 40%,#f5a623 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;position:relative;line-height:1.1;}
+.hero h1{font-size:clamp(2rem,6vw,3.5rem);font-weight:900;letter-spacing:-0.04em;background:var(--hero-gradient);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;position:relative;line-height:1.1;}
 .hero .subtitle{color:var(--text-dim);font-size:clamp(0.85rem,2vw,1.05rem);margin-top:10px;position:relative;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;}
 .fan-badges{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap;position:relative;}
 .fan-badge{padding:7px 18px;border-radius:24px;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid;}
@@ -102,7 +150,7 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .teams-fit span{padding:4px 12px;border-radius:6px;font-size:0.78rem;font-weight:600;background:var(--accent-glow);color:var(--accent-bright);border:1px solid rgba(124,111,247,0.2);}
 
 /* ─── Tabs ─── */
-.tabs-wrapper{position:sticky;top:0;z-index:100;background:rgba(8,8,13,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 0;}
+.tabs-wrapper{position:sticky;top:0;z-index:100;background:var(--tab-bar-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 0;}
 .tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px;max-width:1400px;margin:0 auto;scrollbar-width:none;-ms-overflow-style:none;}
 .tabs::-webkit-scrollbar{display:none;}
 .tab-btn{flex-shrink:0;padding:10px 20px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-dim);font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.25s;white-space:nowrap;letter-spacing:0.01em;}
@@ -322,6 +370,8 @@ footer .sources{max-width:700px;margin:0 auto;}
   .method-grid{grid-template-columns:1fr;}
 }
 
+  .theme-toggle{width:38px;height:38px;font-size:1rem;top:10px;right:10px;}
+}
 /* Extra small screens */
 @media(max-width:400px){
   .hero h1{font-size:1.5rem;}
@@ -536,7 +586,13 @@ footer .sources{max-width:700px;margin:0 auto;}
 }
 </style>
 </head>
-<body>
+<body data-theme="dark">
+
+<!-- THEME TOGGLE -->
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">
+  <span class="icon-sun">&#9728;&#65039;</span>
+  <span class="icon-moon">&#127769;</span>
+</button>
 
 <!-- HERO -->
 <header class="hero">
@@ -1395,6 +1451,20 @@ function updateCountdown(){
 }
 updateCountdown();
 setInterval(updateCountdown,1000);
+
+// ─── THEME TOGGLE ───
+function toggleTheme(){
+  const body=document.body;
+  const current=body.getAttribute('data-theme');
+  const next=current==='dark'?'light':'dark';
+  body.setAttribute('data-theme',next);
+  localStorage.setItem('claude-madness-theme',next);
+}
+// Restore saved preference
+(function(){
+  const saved=localStorage.getItem('claude-madness-theme');
+  if(saved)document.body.setAttribute('data-theme',saved);
+})();
 </script>
 </body>
 </html>
