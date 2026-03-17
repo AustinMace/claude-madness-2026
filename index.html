@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLAUDE MADNESS 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
+:root {
+  --bg: #08080d;
+  --surface: #101018;
+  --surface2: #181824;
+  --surface3: #20202e;
+  --border: #2a2a3d;
+  --border-light: #363650;
+  --text: #eaeaf4;
+  --text-dim: #7878a0;
+  --text-muted: #50506a;
+  --accent: #7c6ff7;
+  --accent-bright: #9d93ff;
+  --accent-glow: rgba(124,111,247,0.25);
+  --gold: #f5a623;
+  --gold-dim: rgba(245,166,35,0.15);
+  --green: #34d399;
+  --green-dim: rgba(52,211,153,0.12);
+  --red: #f87171;
+  --red-dim: rgba(248,113,113,0.12);
+  --purdue-gold: #CEB888;
+  --purdue-glow: rgba(206,184,136,0.18);
+  --miami-red: #B61E2E;
+  --miami-glow: rgba(182,30,46,0.18);
+  --winner: #34d399;
+  --winner-bg: rgba(52,211,153,0.08);
+  --loser: #444460;
+  --upset-gold: #fbbf24;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;-webkit-font-smoothing:antialiased;}
+
+/* ─── Hero ─── */
+.hero{text-align:center;padding:60px 24px 40px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 60%);pointer-events:none;animation:heroPulse 6s ease-in-out infinite;}
+@keyframes heroPulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.08);}}
+.hero h1{font-size:clamp(2rem,6vw,3.5rem);font-weight:900;letter-spacing:-0.04em;background:linear-gradient(135deg,#fff 0%,#a78bfa 40%,#f5a623 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;position:relative;line-height:1.1;}
+.hero .subtitle{color:var(--text-dim);font-size:clamp(0.85rem,2vw,1.05rem);margin-top:10px;position:relative;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;}
+.fan-badges{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap;position:relative;}
+.fan-badge{padding:7px 18px;border-radius:24px;font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border:1.5px solid;}
+.fan-badge.purdue{background:var(--purdue-glow);color:var(--purdue-gold);border-color:rgba(206,184,136,0.35);}
+.fan-badge.miami{background:var(--miami-glow);color:#f87171;border-color:rgba(248,113,113,0.35);}
+
+/* ─── Container ─── */
+.container{max-width:1400px;margin:0 auto;padding:0 16px;}
+
+/* ─── Methodology Section ─── */
+.methodology{margin:0 auto 40px;max-width:960px;}
+.methodology details{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+.methodology summary{padding:20px 28px;cursor:pointer;font-weight:700;font-size:1.05rem;color:var(--text);list-style:none;display:flex;align-items:center;gap:12px;transition:background 0.2s;}
+.methodology summary:hover{background:var(--surface2);}
+.methodology summary::before{content:'';display:inline-block;width:8px;height:8px;border-right:2px solid var(--accent-bright);border-bottom:2px solid var(--accent-bright);transform:rotate(-45deg);transition:transform 0.3s;}
+.methodology details[open] summary::before{transform:rotate(45deg);}
+.methodology summary::-webkit-details-marker{display:none;}
+.methodology .method-body{padding:0 28px 28px;}
+.method-category{margin-top:24px;}
+.method-category:first-child{margin-top:8px;}
+.method-category h3{font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-bright);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.method-category h3::before{content:'';width:3px;height:16px;background:var(--accent);border-radius:2px;}
+.method-list{list-style:none;display:grid;gap:6px;}
+.method-list li{font-size:0.88rem;color:var(--text-dim);line-height:1.6;padding-left:16px;position:relative;}
+.method-list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;border-radius:50%;background:var(--border-light);}
+.method-list li strong{color:var(--text);}
+.method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:12px;}
+.method-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px 18px;}
+.method-card .label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);font-weight:600;}
+.method-card .value{font-size:0.92rem;color:var(--text);margin-top:4px;font-weight:500;}
+.method-card .sub{font-size:0.78rem;color:var(--text-dim);margin-top:2px;}
+.champion-dna{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-top:16px;}
+.champion-dna .criteria{display:grid;gap:6px;margin-top:10px;}
+.champion-dna .criteria li{font-size:0.85rem;color:var(--text-dim);padding-left:24px;position:relative;}
+.champion-dna .criteria li::before{content:'';position:absolute;left:0;top:6px;width:14px;height:14px;border-radius:3px;border:1.5px solid var(--green);background:var(--green-dim);}
+.champion-dna .criteria li::after{content:'';position:absolute;left:3px;top:9px;width:8px;height:4px;border-left:1.5px solid var(--green);border-bottom:1.5px solid var(--green);transform:rotate(-45deg);}
+.teams-fit{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.teams-fit span{padding:4px 12px;border-radius:6px;font-size:0.78rem;font-weight:600;background:var(--accent-glow);color:var(--accent-bright);border:1px solid rgba(124,111,247,0.2);}
+
+/* ─── Tabs ─── */
+.tabs-wrapper{position:sticky;top:0;z-index:100;background:rgba(8,8,13,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 0;}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:0 16px;max-width:1400px;margin:0 auto;scrollbar-width:none;-ms-overflow-style:none;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab-btn{flex-shrink:0;padding:10px 20px;border-radius:10px;border:1.5px solid var(--border);background:var(--surface);color:var(--text-dim);font-size:0.8rem;font-weight:600;cursor:pointer;transition:all 0.25s;white-space:nowrap;letter-spacing:0.01em;}
+.tab-btn:hover{border-color:var(--border-light);color:var(--text);}
+.tab-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 0 20px var(--accent-glow);}
+.tab-btn .tab-champ{display:block;font-size:0.68rem;font-weight:400;opacity:0.7;margin-top:2px;}
+.tab-panel{display:none;animation:fadeIn 0.35s ease;}
+.tab-panel.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+/* ─── Strategy Card ─── */
+.strategy-card{background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);border:1px solid var(--border);border-radius:16px;padding:28px;margin:24px auto;max-width:960px;position:relative;overflow:hidden;}
+.strategy-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--gold));}
+.strategy-card h3{font-size:1.1rem;font-weight:700;margin-bottom:6px;}
+.strategy-card .champion-line{font-size:0.95rem;font-weight:600;margin-bottom:12px;}
+.strategy-card .champion-line .champ{color:var(--gold);font-weight:800;}
+.strategy-card .strategy-text{font-size:0.88rem;color:var(--text-dim);line-height:1.7;}
+.strategy-card .ff-teams{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.strategy-card .ff-team{padding:5px 14px;border-radius:8px;font-size:0.78rem;font-weight:600;background:var(--surface3);border:1px solid var(--border);}
+.strategy-card .ff-team.champ-team{background:var(--gold-dim);color:var(--gold);border-color:rgba(245,166,35,0.3);}
+.strategy-card .key-upsets{margin-top:14px;}
+.strategy-card .key-upsets h4{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);margin-bottom:8px;}
+.strategy-card .upset-list{display:flex;gap:6px;flex-wrap:wrap;}
+.strategy-card .upset-tag{padding:3px 10px;border-radius:6px;font-size:0.74rem;font-weight:600;background:var(--gold-dim);color:var(--upset-gold);border:1px solid rgba(251,191,36,0.2);}
+
+/* ─── Full Bracket Layout ─── */
+.bracket-full{overflow-x:auto;margin:24px 0;padding:8px 0;}
+.bracket-full-inner{display:grid;grid-template-columns:1fr 200px 1fr;grid-template-rows:1fr 1fr;gap:0;min-width:900px;grid-template-areas:"east center west" "south center midwest";}
+.bracket-half{display:flex;align-items:stretch;overflow:hidden;}
+.bracket-half.east-half{grid-area:east;}
+.bracket-half.west-half{grid-area:west;}
+.bracket-half.south-half{grid-area:south;border-top:1px solid var(--border);}
+.bracket-half.midwest-half{grid-area:midwest;border-top:1px solid var(--border);}
+.bracket-half.ltr{flex-direction:row;}
+.bracket-half.rtl{flex-direction:row-reverse;}
+.bracket-half .region-label{writing-mode:vertical-lr;text-orientation:mixed;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent-bright);display:flex;align-items:center;justify-content:center;padding:0 6px;min-width:24px;}
+.bracket-half.ltr .region-label{transform:rotate(180deg);}
+.bracket-center{grid-area:center;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 12px;gap:10px;border-left:1px solid var(--border);border-right:1px solid var(--border);background:var(--surface);}
+.bracket-center-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);font-weight:700;text-align:center;margin-top:8px;}
+.bracket-center-label:first-child{margin-top:0;}
+.bracket-center-matchup{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:8px 16px;text-align:center;font-size:0.8rem;font-weight:600;color:var(--text);width:100%;max-width:176px;}
+.bracket-center-matchup.champ{border-color:var(--gold);background:var(--gold-dim);}
+.bracket-center-vs{font-size:0.65rem;color:var(--text-muted);font-weight:600;}
+.bracket-center-winner{font-size:1.1rem;font-weight:800;color:var(--gold);margin-top:8px;text-align:center;}
+.bracket-center-winner .trophy{font-size:1.6rem;display:block;margin-bottom:4px;}
+.bracket-center-winner .champ-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);display:block;margin-bottom:2px;}
+
+/* Bracket rounds */
+.bracket{display:flex;gap:0;flex:1;min-width:0;}
+.round{display:flex;flex-direction:column;justify-content:center;min-width:0;flex:1;position:relative;max-width:160px;}
+.round-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);text-align:center;padding-bottom:6px;font-weight:600;}
+.matchup{position:relative;margin:2px 0;}
+.matchup-box{background:var(--surface2);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:border-color 0.2s;margin:1px 2px;}
+.matchup-box:hover{border-color:var(--border-light);}
+.team-row{display:flex;align-items:center;padding:2px 6px;gap:4px;font-size:0.68rem;border-bottom:1px solid rgba(42,42,61,0.5);position:relative;transition:background 0.15s;}
+.team-row:last-child{border-bottom:none;}
+.team-row .seed{font-size:0.65rem;color:var(--text-muted);font-weight:600;min-width:16px;font-family:'JetBrains Mono',monospace;}
+.team-row .team-name{flex:1;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.team-row.winner{background:var(--winner-bg);}
+.team-row.winner .team-name{color:var(--winner);font-weight:700;}
+.team-row.loser{opacity:0.4;}
+.team-row.purdue-team{background:var(--purdue-glow);}
+.team-row.purdue-team .team-name{color:var(--purdue-gold);font-weight:700;}
+.team-row.purdue-team.loser{opacity:0.5;}
+.team-row.purdue-team.loser .team-name{color:var(--purdue-gold);}
+.team-row.miami-team{background:var(--miami-glow);}
+.team-row.miami-team .team-name{color:#f87171;font-weight:700;}
+.team-row.miami-team.loser{opacity:0.5;}
+.team-row.miami-team.loser .team-name{color:#f87171;}
+.upset-badge{font-size:0.55rem;font-weight:800;color:var(--upset-gold);background:rgba(251,191,36,0.18);width:14px;height:14px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* RTL team rows */
+.rtl .team-row{flex-direction:row-reverse;}
+.rtl .team-row .seed{text-align:right;}
+.rtl .team-row .team-name{text-align:right;}
+
+/* Connector lines - LTR */
+.matchup-pair{display:flex;flex-direction:column;position:relative;}
+.ltr .round:not(:last-child) .matchup-pair .matchup:first-child .matchup-box::after{content:'';position:absolute;right:-5px;top:50%;width:5px;height:1px;background:var(--border-light);}
+.ltr .round:not(:last-child) .matchup-pair .matchup:last-child .matchup-box::after{content:'';position:absolute;right:-5px;top:50%;width:5px;height:1px;background:var(--border-light);}
+.ltr .round:not(:last-child) .matchup-pair::after{content:'';position:absolute;right:-5px;top:25%;height:50%;width:1px;background:var(--border-light);}
+.ltr .round:not(:last-child) .matchup-pair::before{content:'';position:absolute;right:-10px;top:50%;width:5px;height:1px;background:var(--border-light);}
+
+/* Connector lines - RTL */
+.rtl .round:not(:last-child) .matchup-pair .matchup:first-child .matchup-box::after{content:'';position:absolute;left:-5px;top:50%;width:5px;height:1px;background:var(--border-light);}
+.rtl .round:not(:last-child) .matchup-pair .matchup:last-child .matchup-box::after{content:'';position:absolute;left:-5px;top:50%;width:5px;height:1px;background:var(--border-light);}
+.rtl .round:not(:last-child) .matchup-pair::after{content:'';position:absolute;left:-5px;top:25%;height:50%;width:1px;background:var(--border-light);}
+.rtl .round:not(:last-child) .matchup-pair::before{content:'';position:absolute;left:-10px;top:50%;width:5px;height:1px;background:var(--border-light);}
+
+/* Center connectors from E8 to Final Four */
+.ltr .round:last-child .matchup-box::after{content:'';position:absolute;right:-8px;top:50%;width:8px;height:1px;background:var(--border-light);}
+.rtl .round:last-child .matchup-box::after{content:'';position:absolute;left:-8px;top:50%;width:8px;height:1px;background:var(--border-light);}
+
+/* ─── Data Panels ─── */
+.data-section{max-width:960px;margin:32px auto;display:grid;gap:20px;}
+.data-panel{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 26px;}
+.data-panel h3{font-size:0.9rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.data-panel h3 .icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;}
+
+/* Upset table */
+.upset-table{width:100%;border-collapse:collapse;}
+.upset-table th{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted);text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);font-weight:600;}
+.upset-table td{padding:8px 12px;font-size:0.82rem;border-bottom:1px solid rgba(42,42,61,0.4);}
+.upset-table tr:last-child td{border-bottom:none;}
+.upset-table .matchup-cell{font-weight:600;color:var(--text);}
+.upset-table .seed-diff{color:var(--upset-gold);font-weight:600;font-family:'JetBrains Mono',monospace;font-size:0.78rem;}
+.upset-table .rate{color:var(--text-dim);font-family:'JetBrains Mono',monospace;font-size:0.78rem;}
+
+/* Probability bars */
+.prob-bars{display:grid;gap:10px;}
+.prob-row{display:flex;align-items:center;gap:12px;}
+.prob-label{font-size:0.78rem;color:var(--text-dim);min-width:80px;font-weight:500;}
+.prob-track{flex:1;height:24px;background:var(--surface2);border-radius:6px;overflow:hidden;position:relative;}
+.prob-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent),var(--accent-bright));display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:0.7rem;font-weight:700;color:#fff;transition:width 0.8s ease;min-width:fit-content;}
+.prob-fill.gold{background:linear-gradient(90deg,#d97706,#fbbf24);}
+
+/* Expert tracker */
+.expert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;}
+.expert-card{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:10px;}
+.expert-card .check{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;flex-shrink:0;}
+.expert-card .check.yes{background:var(--green-dim);color:var(--green);border:1.5px solid rgba(52,211,153,0.3);}
+.expert-card .check.no{background:var(--surface3);color:var(--text-muted);border:1.5px solid var(--border);}
+.expert-card .expert-info .name{font-size:0.82rem;font-weight:600;}
+.expert-card .expert-info .pick{font-size:0.72rem;color:var(--text-dim);}
+
+/* ─── Live Feed ─── */
+.live-feed{max-width:1200px;margin:48px auto 0;padding:0 16px;}
+.live-feed h2{font-size:1.3rem;font-weight:800;text-align:center;margin-bottom:24px;background:linear-gradient(90deg,var(--green),var(--accent-bright));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.live-feed .feed-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+@media(max-width:900px){.live-feed .feed-grid{grid-template-columns:1fr;}}
+.feed-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+.feed-card-header{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;font-weight:700;font-size:0.85rem;}
+.feed-card-header .feed-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:livePulse 2s ease-in-out infinite;}
+@keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(52,211,153,0.4);}50%{opacity:0.7;box-shadow:0 0 0 6px rgba(52,211,153,0);}}
+.feed-card-body{height:500px;overflow:hidden;}
+.feed-card-body iframe{width:100%;height:100%;border:none;}
+.feed-link{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--text);transition:all 0.2s;}
+.feed-link:hover{border-color:var(--accent);background:var(--surface3);transform:translateX(4px);}
+.feed-link-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;background:var(--accent-glow);color:var(--accent-bright);flex-shrink:0;letter-spacing:0.02em;}
+.feed-link-text{flex:1;font-size:0.88rem;font-weight:600;line-height:1.3;}
+.feed-link-sub{display:block;font-size:0.72rem;font-weight:400;color:var(--text-dim);margin-top:2px;}
+.feed-link-arrow{color:var(--text-muted);font-size:1.1rem;transition:transform 0.2s;}
+.feed-link:hover .feed-link-arrow{transform:translateX(4px);color:var(--accent-bright);}
+
+/* ─── Footer ─── */
+footer{text-align:center;padding:48px 24px;margin-top:48px;border-top:1px solid var(--border);color:var(--text-muted);font-size:0.78rem;line-height:1.8;}
+footer .sources{max-width:700px;margin:0 auto;}
+
+/* ─── Responsive ─── */
+@media(max-width:768px){
+  .hero{padding:40px 16px 28px;}
+  .methodology .method-body{padding:0 16px 16px;}
+  .methodology summary{padding:16px 18px;font-size:0.95rem;}
+  .strategy-card{padding:20px;margin:16px 12px;}
+  .tab-btn{padding:8px 14px;font-size:0.74rem;}
+  .bracket-full-inner{grid-template-columns:1fr;grid-template-rows:auto;min-width:unset;}
+  .bracket-half{flex-direction:row !important;}
+  .bracket-half .region-label{writing-mode:horizontal-tb;transform:none !important;padding:8px 0;min-width:unset;width:100%;text-align:center;}
+  .bracket-center{padding:16px 8px;min-width:unset;}
+  .rtl .round:last-child .matchup-box::after,
+  .ltr .round:last-child .matchup-box::after{display:none;}
+  .rtl .team-row{flex-direction:row;}
+  .rtl .team-row .seed{text-align:left;}
+  .rtl .team-row .team-name{text-align:left;}
+  .round{min-width:130px;}
+  .team-row{padding:3px 6px;font-size:0.68rem;}
+  .data-panel{padding:16px 18px;}
+  .method-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <h1>CLAUDE MADNESS 2026</h1>
+  <p class="subtitle">AI-Powered Bracket Intelligence</p>
+  <div class="fan-badges">
+    <span class="fan-badge purdue">Boilermakers Fan</span>
+    <span class="fan-badge miami">RedHawks Fan</span>
+  </div>
+</header>
+
+<!-- METHODOLOGY -->
+<div class="container methodology">
+  <details>
+    <summary>How We Built This &mdash; AI Methodology &amp; Data Sources</summary>
+    <div class="method-body">
+
+      <div class="method-category">
+        <h3>Data Pipeline</h3>
+        <ul class="method-list">
+          <li>Scraped <strong>18 Reddit threads</strong> (12,955 upvotes, 8,696 comments) from r/CollegeBasketball, r/sportsbook, r/NCAAhoops</li>
+          <li>Analyzed <strong>32 X/Twitter posts</strong> for real-time sentiment shifts</li>
+          <li>Processed <strong>19 YouTube videos</strong> (207,251 views) including transcript analysis from Field of 68, Chat Sports</li>
+          <li>Cross-referenced <strong>20+ web sources</strong> including CBS Sports, ESPN, FOX Sports, The Ringer, Yahoo Sports</li>
+          <li>Ingested <strong>Nate Silver's 100,000-simulation model</strong> (Silver Bulletin + KenPom blend)</li>
+          <li>Incorporated <strong>Monte Carlo simulations</strong> from multiple independent builders (100K+ runs each)</li>
+        </ul>
+      </div>
+
+      <div class="method-category">
+        <h3>KenPom Rankings Incorporated</h3>
+        <div class="method-grid">
+          <div class="method-card"><div class="label">Duke</div><div class="value">#1 Overall</div><div class="sub">Off #4 &middot; Def #2 &mdash; best balance in the field</div></div>
+          <div class="method-card"><div class="label">Michigan</div><div class="value">#2 Overall</div><div class="sub">Off #8 &middot; Def #1 &mdash; best defense in America</div></div>
+          <div class="method-card"><div class="label">Arizona</div><div class="value">#3 Overall</div><div class="sub">Off #5 &middot; Def #3 &mdash; safest title pick per analytics</div></div>
+          <div class="method-card"><div class="label">Florida</div><div class="value">#4 Overall</div><div class="sub">Off #9 &middot; Def #6 &mdash; late-season surge</div></div>
+          <div class="method-card"><div class="label">Purdue</div><div class="value" style="color:var(--purdue-gold)">Best Offense EVER</div><div class="sub">Best offensive efficiency of the KenPom era (since 1997)</div></div>
+          <div class="method-card"><div class="label">Iowa State</div><div class="value">#4 Adj. Def.</div><div class="sub">Elite defensive efficiency</div></div>
+          <div class="method-card"><div class="label">Tennessee</div><div class="value">KenPom #16</div><div class="sub">eFG% ranked 173rd &mdash; major weakness</div></div>
+        </div>
+      </div>
+
+      <div class="method-category">
+        <h3>Betting Market Intelligence</h3>
+        <div class="method-grid">
+          <div class="method-card"><div class="label">Duke</div><div class="value">+300 (Favorite)</div></div>
+          <div class="method-card"><div class="label">Michigan</div><div class="value">+350</div></div>
+          <div class="method-card"><div class="label">Arizona</div><div class="value">+400</div></div>
+          <div class="method-card"><div class="label">Florida</div><div class="value">+650</div></div>
+          <div class="method-card"><div class="label">Houston</div><div class="value">+1000</div></div>
+          <div class="method-card"><div class="label" style="color:var(--purdue-gold)">Purdue</div><div class="value" style="color:var(--purdue-gold)">+2500&ndash;3500</div><div class="sub">Massive value if you believe</div></div>
+          <div class="method-card"><div class="label">Iowa State</div><div class="value">+2000</div></div>
+        </div>
+      </div>
+
+      <div class="method-category">
+        <h3>Expert Consensus (7 Experts Tracked)</h3>
+        <ul class="method-list">
+          <li><strong>Jay Bilas</strong> (ESPN): Arizona over Michigan State</li>
+          <li><strong>Clark Kellogg</strong> (CBS): Purdue wins title</li>
+          <li><strong>Seth Davis</strong> (CBS): Arizona over Duke</li>
+          <li><strong>Michael Cohen</strong> (FOX): Duke over Arizona</li>
+          <li><strong>Casey Jacobsen</strong> (FOX): Michigan over Arizona</li>
+          <li><strong>Bruce Pearl</strong> (CBS panel): Arizona over Florida</li>
+          <li><strong>Nate Silver model</strong>: Arizona / Duke / Michigan three-way top tier</li>
+          <li><strong>AI (Yahoo Sports)</strong>: Ran AI bracket &mdash; results integrated</li>
+        </ul>
+      </div>
+
+      <div class="method-category">
+        <h3>Champion DNA Formula (93% Hit Rate Since 2007)</h3>
+        <div class="champion-dna">
+          <ul class="criteria" style="list-style:none;">
+            <li>Must have elite offensive efficiency (top ~15)</li>
+            <li>Must have solid defensive efficiency (top ~40)</li>
+            <li>Must have strength of schedule inside top 23</li>
+            <li>Must have multiple key upperclassmen</li>
+            <li>Must have reached conference tournament semifinals</li>
+          </ul>
+          <div style="margin-top:14px;font-size:0.82rem;color:var(--text-dim);">Only <strong style="color:var(--text)">6 teams</strong> fit all criteria in 2026:</div>
+          <div class="teams-fit">
+            <span>Duke</span><span>Arizona</span><span>Michigan</span><span>Florida</span><span style="color:var(--purdue-gold);border-color:rgba(206,184,136,0.3);background:var(--purdue-glow);">Purdue</span><span>Houston</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </details>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrapper">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('homer')">The Homer<span class="tab-champ">Purdue Wins</span></button>
+    <button class="tab-btn" onclick="switchTab('smart')">Smart Money<span class="tab-champ">Arizona Wins</span></button>
+    <button class="tab-btn" onclick="switchTab('fox')">The FOX Bracket<span class="tab-champ">Duke Wins</span></button>
+    <button class="tab-btn" onclick="switchTab('chaos')">Controlled Chaos<span class="tab-champ">Houston Wins</span></button>
+    <button class="tab-btn" onclick="switchTab('dark')">Dark Horse<span class="tab-champ">Michigan Wins</span></button>
+  </div>
+</div>
+
+<!-- TAB PANELS -->
+<div class="container" id="panels">
+
+<!-- ============================================================ -->
+<!-- TAB 1: THE HOMER -->
+<!-- ============================================================ -->
+<div class="tab-panel active" id="panel-homer">
+<div class="strategy-card">
+  <h3>The Homer &mdash; Purdue Wins It All</h3>
+  <div class="champion-line">Champion: <span class="champ">Purdue Boilermakers (2)</span></div>
+  <p class="strategy-text">Purdue owns the best offensive efficiency of the KenPom era. They jumped from a 3-seed to a 2-seed by winning the Big Ten Tournament &mdash; the committee chair confirmed conference tournaments factored into seeding this year. At +2500&ndash;3500 odds, Purdue is a massive leverage play: if only ~3% of pools pick them and they have a ~5.6% chance, that's positive expected value. Clark Kellogg picked them on national TV. Miami OH beats SMU in Dayton (60 miles from campus, functionally a home game) but falls to Tennessee's tournament pedigree.</p>
+  <div class="ff-teams">
+    <span class="ff-team">Duke (1)</span>
+    <span class="ff-team">Florida (1)</span>
+    <span class="ff-team champ-team">Purdue (2)</span>
+    <span class="ff-team">Iowa State (2)</span>
+  </div>
+  <div class="key-upsets">
+    <h4>Key Upsets</h4>
+    <div class="upset-list">
+      <span class="upset-tag">VCU over UNC</span>
+      <span class="upset-tag">Hofstra over Alabama</span>
+      <span class="upset-tag">Missouri over Miami FL</span>
+      <span class="upset-tag">S. Florida over Louisville</span>
+    </div>
+  </div>
+</div>
+
+<div class="bracket-full" id="bracket-homer"></div>
+
+<!-- Data Panels -->
+<div class="data-section">
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--gold-dim);color:var(--upset-gold);">!</span> Upset Probability Table</h3>
+    <table class="upset-table">
+      <thead><tr><th>Upset Pick</th><th>Seeds</th><th>Historical Rate</th></tr></thead>
+      <tbody>
+        <tr><td class="matchup-cell">VCU over UNC</td><td class="seed-diff">11 over 6</td><td class="rate">~37%</td></tr>
+        <tr><td class="matchup-cell">Hofstra over Alabama</td><td class="seed-diff">13 over 4</td><td class="rate">~21%</td></tr>
+        <tr><td class="matchup-cell">Missouri over Miami FL</td><td class="seed-diff">10 over 7</td><td class="rate">~40%</td></tr>
+        <tr><td class="matchup-cell">S. Florida over Louisville</td><td class="seed-diff">11 over 6</td><td class="rate">~37%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--purdue-glow);color:var(--purdue-gold);">%</span> Purdue Win Probability by Round</h3>
+    <div class="prob-bars">
+      <div class="prob-row"><span class="prob-label">R64</span><div class="prob-track"><div class="prob-fill gold" style="width:97%">97%</div></div></div>
+      <div class="prob-row"><span class="prob-label">R32</span><div class="prob-track"><div class="prob-fill gold" style="width:82%">82%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Sweet 16</span><div class="prob-track"><div class="prob-fill gold" style="width:55%">55%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Elite 8</span><div class="prob-track"><div class="prob-fill gold" style="width:28%">28%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Final Four</span><div class="prob-track"><div class="prob-fill gold" style="width:14%">14%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Title</span><div class="prob-track"><div class="prob-fill gold" style="width:5.6%">5.6%</div></div></div>
+    </div>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--green-dim);color:var(--green);">&#10003;</span> Expert Consensus &mdash; Purdue</h3>
+    <div class="expert-grid">
+      <div class="expert-card"><div class="check yes">&#10003;</div><div class="expert-info"><div class="name">Clark Kellogg</div><div class="pick">CBS &mdash; Purdue wins title</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Jay Bilas</div><div class="pick">ESPN &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Seth Davis</div><div class="pick">CBS &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Michael Cohen</div><div class="pick">FOX &mdash; Duke</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Casey Jacobsen</div><div class="pick">FOX &mdash; Michigan</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Bruce Pearl</div><div class="pick">CBS &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Nate Silver</div><div class="pick">Arizona/Duke/Michigan tier</div></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 2: SMART MONEY -->
+<!-- ============================================================ -->
+<div class="tab-panel" id="panel-smart">
+<div class="strategy-card">
+  <h3>Smart Money &mdash; Arizona (Analytics Pick)</h3>
+  <div class="champion-line">Champion: <span class="champ">Arizona Wildcats (1)</span></div>
+  <p class="strategy-text">Arizona is the consensus pick across every data source we analyzed. Jay Bilas, Seth Davis, Bruce Pearl, Nate Silver's model, and multiple Monte Carlo simulations all converge on the Wildcats. KenPom #3 overall with top-5 offense AND top-3 defense &mdash; the rarest combination in the field. At +400 they offer better value than Duke (+300) with comparable or better analytics. Their West Region draw is favorable per Nate Silver.</p>
+  <div class="ff-teams">
+    <span class="ff-team">Duke (1)</span>
+    <span class="ff-team">Houston (2)</span>
+    <span class="ff-team champ-team">Arizona (1)</span>
+    <span class="ff-team">Michigan (1)</span>
+  </div>
+  <div class="key-upsets">
+    <h4>Key Upsets</h4>
+    <div class="upset-list">
+      <span class="upset-tag">High Point over Wisconsin</span>
+      <span class="upset-tag">Hofstra over Alabama</span>
+      <span class="upset-tag">VCU over UNC</span>
+    </div>
+  </div>
+</div>
+
+<div class="bracket-full" id="bracket-smart"></div>
+
+<div class="data-section">
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--gold-dim);color:var(--upset-gold);">!</span> Upset Probability Table</h3>
+    <table class="upset-table">
+      <thead><tr><th>Upset Pick</th><th>Seeds</th><th>Historical Rate</th></tr></thead>
+      <tbody>
+        <tr><td class="matchup-cell">High Point over Wisconsin</td><td class="seed-diff">12 over 5</td><td class="rate">~35%</td></tr>
+        <tr><td class="matchup-cell">Hofstra over Alabama</td><td class="seed-diff">13 over 4</td><td class="rate">~21%</td></tr>
+        <tr><td class="matchup-cell">VCU over UNC</td><td class="seed-diff">11 over 6</td><td class="rate">~37%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--accent-glow);color:var(--accent-bright);">%</span> Arizona Win Probability by Round</h3>
+    <div class="prob-bars">
+      <div class="prob-row"><span class="prob-label">R64</span><div class="prob-track"><div class="prob-fill" style="width:99%">99%</div></div></div>
+      <div class="prob-row"><span class="prob-label">R32</span><div class="prob-track"><div class="prob-fill" style="width:88%">88%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Sweet 16</span><div class="prob-track"><div class="prob-fill" style="width:62%">62%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Elite 8</span><div class="prob-track"><div class="prob-fill" style="width:38%">38%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Final Four</span><div class="prob-track"><div class="prob-fill" style="width:22%">22%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Title</span><div class="prob-track"><div class="prob-fill" style="width:12%">12%</div></div></div>
+    </div>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--green-dim);color:var(--green);">&#10003;</span> Expert Consensus &mdash; Arizona</h3>
+    <div class="expert-grid">
+      <div class="expert-card"><div class="check yes">&#10003;</div><div class="expert-info"><div class="name">Jay Bilas</div><div class="pick">ESPN &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check yes">&#10003;</div><div class="expert-info"><div class="name">Seth Davis</div><div class="pick">CBS &mdash; Arizona over Duke</div></div></div>
+      <div class="expert-card"><div class="check yes">&#10003;</div><div class="expert-info"><div class="name">Bruce Pearl</div><div class="pick">CBS &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check yes">&#10003;</div><div class="expert-info"><div class="name">Nate Silver</div><div class="pick">Top tier pick</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Michael Cohen</div><div class="pick">FOX &mdash; Duke</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Casey Jacobsen</div><div class="pick">FOX &mdash; Michigan</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Clark Kellogg</div><div class="pick">CBS &mdash; Purdue</div></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 3: FOX BRACKET -->
+<!-- ============================================================ -->
+<div class="tab-panel" id="panel-fox">
+<div class="strategy-card">
+  <h3>The FOX Bracket &mdash; Duke (Expert Media Pick)</h3>
+  <div class="champion-line">Champion: <span class="champ">Duke Blue Devils (1)</span></div>
+  <p class="strategy-text">Duke has Cameron Boozer, the best player in the country, and the #1 overall KenPom ranking with elite balance (#4 offense, #2 defense). Michael Cohen and multiple FOX analysts have Duke cutting down the nets. At +300 they're the betting favorite for a reason. Nate Silver notes Duke is "a great team" but got an unfavorable draw &mdash; St. John's is "significantly under-seeded" per the models. If Duke navigates the East, they're the best team in the field.</p>
+  <div class="ff-teams">
+    <span class="ff-team champ-team">Duke (1)</span>
+    <span class="ff-team">Illinois (3)</span>
+    <span class="ff-team">Arizona (1)</span>
+    <span class="ff-team">Michigan (1)</span>
+  </div>
+  <div class="key-upsets">
+    <h4>Key Upsets</h4>
+    <div class="upset-list">
+      <span class="upset-tag">St. John's over Kansas</span>
+      <span class="upset-tag">VCU over UNC</span>
+      <span class="upset-tag">Hofstra over Alabama</span>
+      <span class="upset-tag">Illinois over Florida (E8)</span>
+    </div>
+  </div>
+</div>
+
+<div class="bracket-full" id="bracket-fox"></div>
+
+<div class="data-section">
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--gold-dim);color:var(--upset-gold);">!</span> Upset Probability Table</h3>
+    <table class="upset-table">
+      <thead><tr><th>Upset Pick</th><th>Seeds</th><th>Historical Rate</th></tr></thead>
+      <tbody>
+        <tr><td class="matchup-cell">St. John's over Kansas</td><td class="seed-diff">5 over 4</td><td class="rate">~45%</td></tr>
+        <tr><td class="matchup-cell">VCU over UNC</td><td class="seed-diff">11 over 6</td><td class="rate">~37%</td></tr>
+        <tr><td class="matchup-cell">Hofstra over Alabama</td><td class="seed-diff">13 over 4</td><td class="rate">~21%</td></tr>
+        <tr><td class="matchup-cell">Illinois over Florida (E8)</td><td class="seed-diff">3 over 1</td><td class="rate">~30%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--accent-glow);color:var(--accent-bright);">%</span> Duke Win Probability by Round</h3>
+    <div class="prob-bars">
+      <div class="prob-row"><span class="prob-label">R64</span><div class="prob-track"><div class="prob-fill" style="width:99%">99%</div></div></div>
+      <div class="prob-row"><span class="prob-label">R32</span><div class="prob-track"><div class="prob-fill" style="width:90%">90%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Sweet 16</span><div class="prob-track"><div class="prob-fill" style="width:65%">65%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Elite 8</span><div class="prob-track"><div class="prob-fill" style="width:40%">40%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Final Four</span><div class="prob-track"><div class="prob-fill" style="width:24%">24%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Title</span><div class="prob-track"><div class="prob-fill" style="width:14%">14%</div></div></div>
+    </div>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--green-dim);color:var(--green);">&#10003;</span> Expert Consensus &mdash; Duke</h3>
+    <div class="expert-grid">
+      <div class="expert-card"><div class="check yes">&#10003;</div><div class="expert-info"><div class="name">Michael Cohen</div><div class="pick">FOX &mdash; Duke over Arizona</div></div></div>
+      <div class="expert-card"><div class="check yes">&#10003;</div><div class="expert-info"><div class="name">Nate Silver</div><div class="pick">Top tier pick</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Jay Bilas</div><div class="pick">ESPN &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Seth Davis</div><div class="pick">CBS &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Casey Jacobsen</div><div class="pick">FOX &mdash; Michigan</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Clark Kellogg</div><div class="pick">CBS &mdash; Purdue</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Bruce Pearl</div><div class="pick">CBS &mdash; Arizona</div></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 4: CONTROLLED CHAOS -->
+<!-- ============================================================ -->
+<div class="tab-panel" id="panel-chaos">
+<div class="strategy-card">
+  <h3>Controlled Chaos &mdash; Houston (Large Pool Strategy)</h3>
+  <div class="champion-line">Champion: <span class="champ">Houston Cougars (2)</span></div>
+  <p class="strategy-text">For pools with 200+ entries, you need picks nobody else has. Houston at +1000 is the most underowned contender with legitimate title credentials. They have a Hall of Fame coach in Kelvin Sampson, made last year's championship game, and the South Region Sweet 16/Elite 8 are played IN HOUSTON &mdash; functionally home games. Their defense is elite. Multiple CBS experts have Houston in the Final Four. Duke falls in Round of 32 to Ohio State. Miami OH makes a Cinderella Sweet 16 run.</p>
+  <div class="ff-teams">
+    <span class="ff-team">UConn (2)</span>
+    <span class="ff-team champ-team">Houston (2)</span>
+    <span class="ff-team" style="color:var(--purdue-gold);">Purdue (2)</span>
+    <span class="ff-team">Iowa State (2)</span>
+  </div>
+  <div style="margin-top:8px;font-size:0.82rem;color:var(--upset-gold);font-weight:600;">All four 2-seeds in the Final Four &mdash; maximum chaos!</div>
+  <div class="key-upsets">
+    <h4>Key Upsets</h4>
+    <div class="upset-list">
+      <span class="upset-tag">Ohio St. over Duke (R32)</span>
+      <span class="upset-tag">Cal Baptist over Kansas</span>
+      <span class="upset-tag" style="color:#f87171;background:var(--miami-glow);border-color:rgba(248,113,113,0.25);">Miami OH Sweet 16!</span>
+      <span class="upset-tag">McNeese over Vanderbilt</span>
+      <span class="upset-tag">Nebraska over Florida (S16)</span>
+    </div>
+  </div>
+</div>
+
+<div class="bracket-full" id="bracket-chaos"></div>
+
+<div class="data-section">
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--gold-dim);color:var(--upset-gold);">!</span> Upset Probability Table</h3>
+    <table class="upset-table">
+      <thead><tr><th>Upset Pick</th><th>Seeds</th><th>Historical Rate</th></tr></thead>
+      <tbody>
+        <tr><td class="matchup-cell">Ohio St. over Duke (R32)</td><td class="seed-diff">8 over 1</td><td class="rate">~12%</td></tr>
+        <tr><td class="matchup-cell">Cal Baptist over Kansas</td><td class="seed-diff">13 over 4</td><td class="rate">~21%</td></tr>
+        <tr><td class="matchup-cell">Miami OH over Tennessee</td><td class="seed-diff">11 over 6</td><td class="rate">~37%</td></tr>
+        <tr><td class="matchup-cell">Miami OH over Virginia (R32)</td><td class="seed-diff">11 over 3</td><td class="rate">~15%</td></tr>
+        <tr><td class="matchup-cell">McNeese over Vanderbilt</td><td class="seed-diff">12 over 5</td><td class="rate">~35%</td></tr>
+        <tr><td class="matchup-cell">Nebraska over Florida (S16)</td><td class="seed-diff">4 over 1</td><td class="rate">~20%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--red-dim);color:var(--red);">%</span> Houston Win Probability by Round</h3>
+    <div class="prob-bars">
+      <div class="prob-row"><span class="prob-label">R64</span><div class="prob-track"><div class="prob-fill" style="width:98%;background:linear-gradient(90deg,#dc2626,#f87171);">98%</div></div></div>
+      <div class="prob-row"><span class="prob-label">R32</span><div class="prob-track"><div class="prob-fill" style="width:80%;background:linear-gradient(90deg,#dc2626,#f87171);">80%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Sweet 16</span><div class="prob-track"><div class="prob-fill" style="width:52%;background:linear-gradient(90deg,#dc2626,#f87171);">52%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Elite 8</span><div class="prob-track"><div class="prob-fill" style="width:30%;background:linear-gradient(90deg,#dc2626,#f87171);">30%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Final Four</span><div class="prob-track"><div class="prob-fill" style="width:16%;background:linear-gradient(90deg,#dc2626,#f87171);">16%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Title</span><div class="prob-track"><div class="prob-fill" style="width:7%;background:linear-gradient(90deg,#dc2626,#f87171);">7%</div></div></div>
+    </div>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--green-dim);color:var(--green);">&#10003;</span> Expert Consensus &mdash; Houston</h3>
+    <div class="expert-grid">
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Jay Bilas</div><div class="pick">ESPN &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Clark Kellogg</div><div class="pick">CBS &mdash; Purdue</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Seth Davis</div><div class="pick">CBS &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Michael Cohen</div><div class="pick">FOX &mdash; Duke</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Casey Jacobsen</div><div class="pick">FOX &mdash; Michigan</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Bruce Pearl</div><div class="pick">CBS &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Nate Silver</div><div class="pick">Arizona/Duke/Michigan tier</div></div></div>
+    </div>
+    <p style="margin-top:12px;font-size:0.82rem;color:var(--text-dim);font-style:italic;">No tracked expert picked Houston to win the title &mdash; that is the point. This is a large-pool contrarian play.</p>
+  </div>
+</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- TAB 5: DARK HORSE -->
+<!-- ============================================================ -->
+<div class="tab-panel" id="panel-dark">
+<div class="strategy-card">
+  <h3>Dark Horse &mdash; Michigan (Defensive Juggernaut)</h3>
+  <div class="champion-line">Champion: <span class="champ">Michigan Wolverines (1)</span></div>
+  <p class="strategy-text">Michigan has the #1 defense in America per KenPom and a top-8 offense &mdash; the most dominant two-way profile in the field. Casey Jacobsen (FOX) picks them to be the first Big Ten champion since Michigan State in 2000. At +350 they're slightly undervalued vs Duke. They "humiliated" elite opponents at the Players Era Tournament. The Midwest Region draw is manageable. The contrarian angle: everyone's talking Duke and Arizona while Michigan quietly has the best defensive efficiency in the country.</p>
+  <div class="ff-teams">
+    <span class="ff-team">Duke (1)</span>
+    <span class="ff-team">Florida (1)</span>
+    <span class="ff-team">Arizona (1)</span>
+    <span class="ff-team champ-team">Michigan (1)</span>
+  </div>
+  <div style="margin-top:8px;font-size:0.82rem;color:var(--text-dim);">All four 1-seeds in the Final Four &mdash; rare but possible.</div>
+  <div class="key-upsets">
+    <h4>Key Upsets</h4>
+    <div class="upset-list">
+      <span class="upset-tag">VCU over UNC</span>
+      <span class="upset-tag">Hofstra over Alabama</span>
+    </div>
+  </div>
+</div>
+
+<div class="bracket-full" id="bracket-dark"></div>
+
+<div class="data-section">
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--gold-dim);color:var(--upset-gold);">!</span> Upset Probability Table</h3>
+    <table class="upset-table">
+      <thead><tr><th>Upset Pick</th><th>Seeds</th><th>Historical Rate</th></tr></thead>
+      <tbody>
+        <tr><td class="matchup-cell">VCU over UNC</td><td class="seed-diff">11 over 6</td><td class="rate">~37%</td></tr>
+        <tr><td class="matchup-cell">Hofstra over Alabama</td><td class="seed-diff">13 over 4</td><td class="rate">~21%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:rgba(59,130,246,0.15);color:#60a5fa;">%</span> Michigan Win Probability by Round</h3>
+    <div class="prob-bars">
+      <div class="prob-row"><span class="prob-label">R64</span><div class="prob-track"><div class="prob-fill" style="width:99%;background:linear-gradient(90deg,#2563eb,#60a5fa);">99%</div></div></div>
+      <div class="prob-row"><span class="prob-label">R32</span><div class="prob-track"><div class="prob-fill" style="width:87%;background:linear-gradient(90deg,#2563eb,#60a5fa);">87%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Sweet 16</span><div class="prob-track"><div class="prob-fill" style="width:60%;background:linear-gradient(90deg,#2563eb,#60a5fa);">60%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Elite 8</span><div class="prob-track"><div class="prob-fill" style="width:35%;background:linear-gradient(90deg,#2563eb,#60a5fa);">35%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Final Four</span><div class="prob-track"><div class="prob-fill" style="width:20%;background:linear-gradient(90deg,#2563eb,#60a5fa);">20%</div></div></div>
+      <div class="prob-row"><span class="prob-label">Title</span><div class="prob-track"><div class="prob-fill" style="width:11%;background:linear-gradient(90deg,#2563eb,#60a5fa);">11%</div></div></div>
+    </div>
+  </div>
+  <div class="data-panel">
+    <h3><span class="icon" style="background:var(--green-dim);color:var(--green);">&#10003;</span> Expert Consensus &mdash; Michigan</h3>
+    <div class="expert-grid">
+      <div class="expert-card"><div class="check yes">&#10003;</div><div class="expert-info"><div class="name">Casey Jacobsen</div><div class="pick">FOX &mdash; Michigan over Arizona</div></div></div>
+      <div class="expert-card"><div class="check yes">&#10003;</div><div class="expert-info"><div class="name">Nate Silver</div><div class="pick">Top tier pick</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Jay Bilas</div><div class="pick">ESPN &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Seth Davis</div><div class="pick">CBS &mdash; Arizona</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Michael Cohen</div><div class="pick">FOX &mdash; Duke</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Clark Kellogg</div><div class="pick">CBS &mdash; Purdue</div></div></div>
+      <div class="expert-card"><div class="check no">&times;</div><div class="expert-info"><div class="name">Bruce Pearl</div><div class="pick">CBS &mdash; Arizona</div></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div><!-- end #panels -->
+
+<!-- LIVE FEED -->
+<section class="live-feed">
+  <h2>LIVE MARCH MADNESS FEED</h2>
+  <div class="feed-grid">
+    <div class="feed-card">
+      <div class="feed-card-header"><span class="feed-dot"></span> Live Scores &amp; Bracket</div>
+      <div style="padding:20px;display:grid;gap:12px;">
+        <a href="https://www.espn.com/mens-college-basketball/scoreboard" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon">ESPN</span><span class="feed-link-text">Live Scoreboard<span class="feed-link-sub">Real-time scores, box scores, highlights</span></span><span class="feed-link-arrow">&rarr;</span></a>
+        <a href="https://www.ncaa.com/march-madness-live/bracket" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon" style="background:var(--gold-dim);color:var(--gold);">NCAA</span><span class="feed-link-text">March Madness Live Bracket<span class="feed-link-sub">Official bracket with live game links</span></span><span class="feed-link-arrow">&rarr;</span></a>
+        <a href="https://www.cbssports.com/college-basketball/scoreboard/" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon" style="background:rgba(59,130,246,0.15);color:#60a5fa;">CBS</span><span class="feed-link-text">CBS Scoreboard<span class="feed-link-sub">Scores, odds, and game previews</span></span><span class="feed-link-arrow">&rarr;</span></a>
+        <a href="https://www.espn.com/mens-college-basketball/bracket" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon" style="background:var(--green-dim);color:var(--green);">BKT</span><span class="feed-link-text">ESPN Bracket Tracker<span class="feed-link-sub">Updated bracket with results as they happen</span></span><span class="feed-link-arrow">&rarr;</span></a>
+        <a href="https://fantasy.espn.com/games/tournament-challenge-bracket-2026/" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon" style="background:rgba(168,85,247,0.15);color:#c084fc;">TC</span><span class="feed-link-text">ESPN Tournament Challenge<span class="feed-link-sub">Check how your bracket is doing vs the field</span></span><span class="feed-link-arrow">&rarr;</span></a>
+      </div>
+    </div>
+    <div class="feed-card">
+      <div class="feed-card-header"><span class="feed-dot"></span> Social &amp; Analysis</div>
+      <div style="padding:20px;display:grid;gap:12px;">
+        <a href="https://twitter.com/search?q=%23MarchMadness&f=live" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon" style="background:rgba(29,155,240,0.15);color:#1d9bf0;">X</span><span class="feed-link-text">#MarchMadness Live<span class="feed-link-sub">Real-time reactions, highlights, hot takes</span></span><span class="feed-link-arrow">&rarr;</span></a>
+        <a href="https://www.reddit.com/r/CollegeBasketball/" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon" style="background:rgba(255,69,0,0.15);color:#ff4500;">R</span><span class="feed-link-text">r/CollegeBasketball<span class="feed-link-sub">Game threads, bracket busters, memes</span></span><span class="feed-link-arrow">&rarr;</span></a>
+        <a href="https://www.reddit.com/r/sportsbook/search?q=march+madness&sort=new" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon" style="background:rgba(255,69,0,0.15);color:#ff4500;">R</span><span class="feed-link-text">r/sportsbook March Madness<span class="feed-link-sub">Sharp picks, line movements, betting angles</span></span><span class="feed-link-arrow">&rarr;</span></a>
+        <a href="https://twitter.com/MarchMadnessMBB" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon" style="background:rgba(29,155,240,0.15);color:#1d9bf0;">X</span><span class="feed-link-text">@MarchMadnessMBB<span class="feed-link-sub">Official NCAA March Madness account</span></span><span class="feed-link-arrow">&rarr;</span></a>
+        <a href="https://kenpom.com/" target="_blank" rel="noopener" class="feed-link"><span class="feed-link-icon" style="background:rgba(245,166,35,0.15);color:var(--gold);">KP</span><span class="feed-link-text">KenPom Ratings<span class="feed-link-sub">Live efficiency rankings after each game</span></span><span class="feed-link-arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="sources">
+    Built by Claude (Anthropic) &middot; Data: Reddit (18 threads), X (32 posts), YouTube (19 videos), ESPN, CBS Sports, FOX Sports, Nate Silver, KenPom &middot; 100,000+ simulations analyzed
+  </div>
+</footer>
+
+<script>
+// ─── TAB SWITCHING ───
+function switchTab(id) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  const panels = {homer:0,smart:1,fox:2,chaos:3,dark:4};
+  document.querySelectorAll('.tab-btn')[panels[id]].classList.add('active');
+  document.getElementById('panel-'+id).classList.add('active');
+}
+
+// ─── BRACKET DATA & RENDERER ───
+const PURDUE_NAMES = ['Purdue'];
+const MIAMI_NAMES = ['Miami OH'];
+function isPurdue(n){return PURDUE_NAMES.some(p=>n===p);}
+function isMiami(n){return MIAMI_NAMES.some(p=>n===p);}
+
+function teamRow(seed,name,isWinner,isUpset){
+  let cls='team-row';
+  if(isWinner)cls+=' winner'; else cls+=' loser';
+  if(isPurdue(name))cls+=' purdue-team';
+  if(isMiami(name))cls+=' miami-team';
+  let badge=isUpset&&isWinner?'<span class="upset-badge">!</span>':'';
+  return `<div class="${cls}"><span class="seed">${seed}</span><span class="team-name">${name}</span>${badge}</div>`;
+}
+
+function matchupHTML(t1seed,t1name,t2seed,t2name,winnerName){
+  const t1w=t1name===winnerName;
+  const t2w=t2name===winnerName;
+  const isUpset=t1w?(+t1seed>+t2seed):(+t2seed>+t1seed);
+  return `<div class="matchup"><div class="matchup-box">${teamRow(t1seed,t1name,t1w,isUpset)}${teamRow(t2seed,t2name,t2w,isUpset)}</div></div>`;
+}
+
+// Render a single region bracket, returns HTML string
+// direction: 'ltr' or 'rtl'
+function buildBracketHTML(rounds, direction){
+  const labelsLTR=['Round of 64','Round of 32','Sweet 16','Elite 8'];
+  const labelsRTL=['Elite 8','Sweet 16','Round of 32','Round of 64'];
+  const labels = direction==='rtl' ? labelsRTL : labelsLTR;
+  const orderedRounds = direction==='rtl' ? [...rounds].reverse() : rounds;
+  let html='';
+  orderedRounds.forEach((round,ri)=>{
+    html+=`<div class="round"><div class="round-label">${labels[ri]||''}</div>`;
+    for(let i=0;i<round.length;i+=2){
+      html+='<div class="matchup-pair">';
+      html+=matchupHTML(round[i].s1,round[i].t1,round[i].s2,round[i].t2,round[i].w);
+      if(round[i+1])html+=matchupHTML(round[i+1].s1,round[i+1].t1,round[i+1].s2,round[i+1].t2,round[i+1].w);
+      html+='</div>';
+    }
+    html+='</div>';
+  });
+  return html;
+}
+
+function M(s1,t1,s2,t2,w){return{s1,t1,s2,t2,w};}
+
+// Render the full traditional bracket into a container
+// config: { east, west, south, midwest, finalFour }
+// finalFour: { sf1: {t1,t2,w}, sf2: {t1,t2,w}, final: {t1,t2,w}, champion, champColor }
+function renderFullBracket(containerId, config){
+  const el=document.getElementById(containerId);
+  if(!el)return;
+
+  const ff = config.finalFour;
+
+  // Build center column
+  let centerHTML = `
+    <div class="bracket-center">
+      <div class="bracket-center-label">FINAL FOUR</div>
+      <div class="bracket-center-matchup">${ff.sf1.t1} vs ${ff.sf1.t2}</div>
+      <div class="bracket-center-matchup">${ff.sf2.t1} vs ${ff.sf2.t2}</div>
+      <div class="bracket-center-label" style="margin-top:8px;">NATIONAL CHAMPIONSHIP</div>
+      <div class="bracket-center-matchup champ">${ff.final.t1} vs ${ff.final.t2}</div>
+      <div class="bracket-center-winner" style="color:${ff.champColor}"><span class="trophy">&#127942;</span><span class="champ-label">National Champion</span>${ff.champion}</div>
+    </div>
+  `;
+
+  // Top row: East (LTR) | Center | West (RTL)
+  // Bottom row: South (LTR) | Center | Midwest (RTL)
+  let html = `<div class="bracket-full-inner">`;
+
+  // East (top-left, LTR)
+  html += `<div class="bracket-half ltr east-half">
+    <div class="region-label">EAST</div>
+    <div class="bracket">${buildBracketHTML(config.east, 'ltr')}</div>
+  </div>`;
+
+  // Center column spans both rows
+  html += centerHTML;
+
+  // West (top-right, RTL)
+  html += `<div class="bracket-half rtl west-half">
+    <div class="region-label">WEST</div>
+    <div class="bracket">${buildBracketHTML(config.west, 'rtl')}</div>
+  </div>`;
+
+  // South (bottom-left, LTR)
+  html += `<div class="bracket-half ltr south-half">
+    <div class="region-label">SOUTH</div>
+    <div class="bracket">${buildBracketHTML(config.south, 'ltr')}</div>
+  </div>`;
+
+  // Midwest (bottom-right, RTL)
+  html += `<div class="bracket-half rtl midwest-half">
+    <div class="region-label">MIDWEST</div>
+    <div class="bracket">${buildBracketHTML(config.midwest, 'rtl')}</div>
+  </div>`;
+
+  html += `</div>`;
+  el.innerHTML = html;
+}
+
+// ─── BRACKET DATA ───
+
+// EAST region round data (reused across tabs)
+const EAST_HOMER = [
+  [M(1,'Duke',16,'Siena','Duke'),M(8,'Ohio State',9,'TCU','TCU'),
+   M(5,"St. John's",12,'N. Iowa',"St. John's"),M(4,'Kansas',13,'Cal Baptist','Kansas'),
+   M(3,'Michigan St',14,'ND State','Michigan St'),M(6,'Louisville',11,'S. Florida','S. Florida'),
+   M(7,'UCLA',10,'UCF','UCLA'),M(2,'UConn',15,'Furman','UConn')],
+  [M(1,'Duke',9,'TCU','Duke'),M(5,"St. John's",4,'Kansas',"St. John's"),
+   M(3,'Michigan St',11,'S. Florida','Michigan St'),M(2,'UConn',7,'UCLA','UConn')],
+  [M(1,'Duke',5,"St. John's",'Duke'),M(2,'UConn',3,'Michigan St','UConn')],
+  [M(1,'Duke',2,'UConn','Duke')]
+];
+
+const WEST_HOMER = [
+  [M(1,'Arizona',16,'LIU','Arizona'),M(8,'Villanova',9,'Utah State','Villanova'),
+   M(5,'Wisconsin',12,'High Point','Wisconsin'),M(4,'Arkansas',13,'Hawaii','Arkansas'),
+   M(3,'Gonzaga',14,'Kennesaw St','Gonzaga'),M(6,'BYU',11,'Texas','BYU'),
+   M(7,'Miami FL',10,'Missouri','Missouri'),M(2,'Purdue',15,'Queens','Purdue')],
+  [M(1,'Arizona',8,'Villanova','Arizona'),M(4,'Arkansas',5,'Wisconsin','Arkansas'),
+   M(3,'Gonzaga',6,'BYU','Gonzaga'),M(2,'Purdue',10,'Missouri','Purdue')],
+  [M(1,'Arizona',4,'Arkansas','Arizona'),M(2,'Purdue',3,'Gonzaga','Purdue')],
+  [M(1,'Arizona',2,'Purdue','Purdue')]
+];
+
+const MIDWEST_HOMER = [
+  [M(1,'Michigan',16,'UMBC','Michigan'),M(8,'Georgia',9,'St. Louis','St. Louis'),
+   M(5,'Texas Tech',12,'Akron','Texas Tech'),M(4,'Alabama',13,'Hofstra','Hofstra'),
+   M(3,'Virginia',14,'Wright St','Virginia'),M(6,'Tennessee',11,'Miami OH','Tennessee'),
+   M(7,'Kentucky',10,'Santa Clara','Kentucky'),M(2,'Iowa State',15,'Tenn. State','Iowa State')],
+  [M(1,'Michigan',9,'St. Louis','Michigan'),M(13,'Hofstra',5,'Texas Tech','Hofstra'),
+   M(3,'Virginia',6,'Tennessee','Virginia'),M(2,'Iowa State',7,'Kentucky','Iowa State')],
+  [M(1,'Michigan',13,'Hofstra','Michigan'),M(2,'Iowa State',3,'Virginia','Iowa State')],
+  [M(1,'Michigan',2,'Iowa State','Iowa State')]
+];
+
+const SOUTH_HOMER = [
+  [M(1,'Florida',16,'Lehigh','Florida'),M(8,'Clemson',9,'Iowa','Clemson'),
+   M(5,'Vanderbilt',12,'McNeese St','Vanderbilt'),M(4,'Nebraska',13,'Troy','Nebraska'),
+   M(3,'Illinois',14,'Pennsylvania','Illinois'),M(6,'UNC',11,'VCU','VCU'),
+   M(7,"Saint Mary's",10,'Texas A&M',"Saint Mary's"),M(2,'Houston',15,'Idaho','Houston')],
+  [M(1,'Florida',8,'Clemson','Florida'),M(4,'Nebraska',5,'Vanderbilt','Nebraska'),
+   M(3,'Illinois',11,'VCU','Illinois'),M(2,'Houston',7,"Saint Mary's",'Houston')],
+  [M(1,'Florida',4,'Nebraska','Florida'),M(2,'Houston',3,'Illinois','Houston')],
+  [M(1,'Florida',2,'Houston','Florida')]
+];
+
+// ═══════ HOMER ═══════
+renderFullBracket('bracket-homer',{
+  east: EAST_HOMER,
+  west: WEST_HOMER,
+  south: SOUTH_HOMER,
+  midwest: MIDWEST_HOMER,
+  finalFour:{
+    sf1:{t1:'Duke',t2:'Florida',w:'Duke'},
+    sf2:{t1:'Purdue',t2:'Iowa State',w:'Purdue'},
+    final:{t1:'Duke',t2:'Purdue',w:'Purdue'},
+    champion:'PURDUE',
+    champColor:'var(--purdue-gold)'
+  }
+});
+
+// ═══════ SMART MONEY ═══════
+renderFullBracket('bracket-smart',{
+  east: EAST_HOMER, // same as homer
+  west: [
+    [M(1,'Arizona',16,'LIU','Arizona'),M(8,'Villanova',9,'Utah State','Villanova'),
+     M(5,'Wisconsin',12,'High Point','High Point'),M(4,'Arkansas',13,'Hawaii','Arkansas'),
+     M(3,'Gonzaga',14,'Kennesaw St','Gonzaga'),M(6,'BYU',11,'Texas','BYU'),
+     M(7,'Miami FL',10,'Missouri','Missouri'),M(2,'Purdue',15,'Queens','Purdue')],
+    [M(1,'Arizona',8,'Villanova','Arizona'),M(4,'Arkansas',12,'High Point','Arkansas'),
+     M(3,'Gonzaga',6,'BYU','Gonzaga'),M(2,'Purdue',10,'Missouri','Purdue')],
+    [M(1,'Arizona',4,'Arkansas','Arizona'),M(3,'Gonzaga',2,'Purdue','Gonzaga')],
+    [M(1,'Arizona',3,'Gonzaga','Arizona')]
+  ],
+  south: [
+    [M(1,'Florida',16,'Lehigh','Florida'),M(8,'Clemson',9,'Iowa','Clemson'),
+     M(5,'Vanderbilt',12,'McNeese St','Vanderbilt'),M(4,'Nebraska',13,'Troy','Nebraska'),
+     M(3,'Illinois',14,'Pennsylvania','Illinois'),M(6,'UNC',11,'VCU','VCU'),
+     M(7,"Saint Mary's",10,'Texas A&M',"Saint Mary's"),M(2,'Houston',15,'Idaho','Houston')],
+    [M(1,'Florida',8,'Clemson','Florida'),M(5,'Vanderbilt',4,'Nebraska','Vanderbilt'),
+     M(3,'Illinois',11,'VCU','Illinois'),M(2,'Houston',7,"Saint Mary's",'Houston')],
+    [M(1,'Florida',5,'Vanderbilt','Florida'),M(2,'Houston',3,'Illinois','Houston')],
+    [M(1,'Florida',2,'Houston','Houston')]
+  ],
+  midwest: [
+    [M(1,'Michigan',16,'UMBC','Michigan'),M(8,'Georgia',9,'St. Louis','St. Louis'),
+     M(5,'Texas Tech',12,'Akron','Texas Tech'),M(4,'Alabama',13,'Hofstra','Hofstra'),
+     M(3,'Virginia',14,'Wright St','Virginia'),M(6,'Tennessee',11,'Miami OH','Tennessee'),
+     M(7,'Kentucky',10,'Santa Clara','Kentucky'),M(2,'Iowa State',15,'Tenn. State','Iowa State')],
+    [M(1,'Michigan',9,'St. Louis','Michigan'),M(5,'Texas Tech',13,'Hofstra','Texas Tech'),
+     M(3,'Virginia',6,'Tennessee','Virginia'),M(2,'Iowa State',7,'Kentucky','Iowa State')],
+    [M(1,'Michigan',5,'Texas Tech','Michigan'),M(2,'Iowa State',3,'Virginia','Iowa State')],
+    [M(1,'Michigan',2,'Iowa State','Michigan')]
+  ],
+  finalFour:{
+    sf1:{t1:'Duke',t2:'Houston',w:'Duke'},
+    sf2:{t1:'Arizona',t2:'Michigan',w:'Arizona'},
+    final:{t1:'Duke',t2:'Arizona',w:'Arizona'},
+    champion:'ARIZONA',
+    champColor:'var(--gold)'
+  }
+});
+
+// ═══════ FOX ═══════
+renderFullBracket('bracket-fox',{
+  east: [
+    [M(1,'Duke',16,'Siena','Duke'),M(8,'Ohio State',9,'TCU','TCU'),
+     M(5,"St. John's",12,'N. Iowa',"St. John's"),M(4,'Kansas',13,'Cal Baptist','Kansas'),
+     M(3,'Michigan St',14,'ND State','Michigan St'),M(6,'Louisville',11,'S. Florida','Louisville'),
+     M(7,'UCLA',10,'UCF','UCLA'),M(2,'UConn',15,'Furman','UConn')],
+    [M(1,'Duke',9,'TCU','Duke'),M(5,"St. John's",4,'Kansas',"St. John's"),
+     M(3,'Michigan St',6,'Louisville','Michigan St'),M(2,'UConn',7,'UCLA','UConn')],
+    [M(1,'Duke',5,"St. John's",'Duke'),M(2,'UConn',3,'Michigan St','UConn')],
+    [M(1,'Duke',2,'UConn','Duke')]
+  ],
+  west: [
+    [M(1,'Arizona',16,'LIU','Arizona'),M(8,'Villanova',9,'Utah State','Villanova'),
+     M(5,'Wisconsin',12,'High Point','Wisconsin'),M(4,'Arkansas',13,'Hawaii','Arkansas'),
+     M(3,'Gonzaga',14,'Kennesaw St','Gonzaga'),M(6,'BYU',11,'Texas','BYU'),
+     M(7,'Miami FL',10,'Missouri','Miami FL'),M(2,'Purdue',15,'Queens','Purdue')],
+    [M(1,'Arizona',8,'Villanova','Arizona'),M(4,'Arkansas',5,'Wisconsin','Arkansas'),
+     M(3,'Gonzaga',6,'BYU','Gonzaga'),M(2,'Purdue',7,'Miami FL','Purdue')],
+    [M(1,'Arizona',4,'Arkansas','Arizona'),M(2,'Purdue',3,'Gonzaga','Purdue')],
+    [M(1,'Arizona',2,'Purdue','Arizona')]
+  ],
+  south: [
+    [M(1,'Florida',16,'Lehigh','Florida'),M(8,'Clemson',9,'Iowa','Clemson'),
+     M(5,'Vanderbilt',12,'McNeese St','Vanderbilt'),M(4,'Nebraska',13,'Troy','Nebraska'),
+     M(3,'Illinois',14,'Pennsylvania','Illinois'),M(6,'UNC',11,'VCU','VCU'),
+     M(7,"Saint Mary's",10,'Texas A&M',"Saint Mary's"),M(2,'Houston',15,'Idaho','Houston')],
+    [M(1,'Florida',8,'Clemson','Florida'),M(5,'Vanderbilt',4,'Nebraska','Vanderbilt'),
+     M(3,'Illinois',11,'VCU','Illinois'),M(2,'Houston',7,"Saint Mary's",'Houston')],
+    [M(1,'Florida',5,'Vanderbilt','Florida'),M(3,'Illinois',2,'Houston','Illinois')],
+    [M(1,'Florida',3,'Illinois','Illinois')]
+  ],
+  midwest: [
+    [M(1,'Michigan',16,'UMBC','Michigan'),M(8,'Georgia',9,'St. Louis','St. Louis'),
+     M(5,'Texas Tech',12,'Akron','Texas Tech'),M(4,'Alabama',13,'Hofstra','Hofstra'),
+     M(3,'Virginia',14,'Wright St','Virginia'),M(6,'Tennessee',11,'Miami OH','Tennessee'),
+     M(7,'Kentucky',10,'Santa Clara','Kentucky'),M(2,'Iowa State',15,'Tenn. State','Iowa State')],
+    [M(1,'Michigan',9,'St. Louis','Michigan'),M(5,'Texas Tech',13,'Hofstra','Texas Tech'),
+     M(3,'Virginia',6,'Tennessee','Virginia'),M(2,'Iowa State',7,'Kentucky','Iowa State')],
+    [M(1,'Michigan',5,'Texas Tech','Michigan'),M(3,'Virginia',2,'Iowa State','Virginia')],
+    [M(1,'Michigan',3,'Virginia','Michigan')]
+  ],
+  finalFour:{
+    sf1:{t1:'Duke',t2:'Illinois',w:'Duke'},
+    sf2:{t1:'Arizona',t2:'Michigan',w:'Arizona'},
+    final:{t1:'Duke',t2:'Arizona',w:'Duke'},
+    champion:'DUKE',
+    champColor:'var(--accent-bright)'
+  }
+});
+
+// ═══════ CHAOS ═══════
+renderFullBracket('bracket-chaos',{
+  east: [
+    [M(1,'Duke',16,'Siena','Duke'),M(8,'Ohio State',9,'TCU','Ohio State'),
+     M(5,"St. John's",12,'N. Iowa',"St. John's"),M(4,'Kansas',13,'Cal Baptist','Cal Baptist'),
+     M(3,'Michigan St',14,'ND State','Michigan St'),M(6,'Louisville',11,'S. Florida','S. Florida'),
+     M(7,'UCLA',10,'UCF','UCLA'),M(2,'UConn',15,'Furman','UConn')],
+    [M(8,'Ohio State',1,'Duke','Ohio State'),M(5,"St. John's",13,'Cal Baptist',"St. John's"),
+     M(3,'Michigan St',11,'S. Florida','Michigan St'),M(2,'UConn',7,'UCLA','UConn')],
+    [M(5,"St. John's",8,'Ohio State',"St. John's"),M(2,'UConn',3,'Michigan St','UConn')],
+    [M(5,"St. John's",2,'UConn','UConn')]
+  ],
+  west: WEST_HOMER, // same as Homer West - Purdue wins
+  south: [
+    [M(1,'Florida',16,'Lehigh','Florida'),M(8,'Clemson',9,'Iowa','Clemson'),
+     M(5,'Vanderbilt',12,'McNeese St','McNeese St'),M(4,'Nebraska',13,'Troy','Nebraska'),
+     M(3,'Illinois',14,'Pennsylvania','Illinois'),M(6,'UNC',11,'VCU','VCU'),
+     M(7,"Saint Mary's",10,'Texas A&M',"Saint Mary's"),M(2,'Houston',15,'Idaho','Houston')],
+    [M(1,'Florida',8,'Clemson','Florida'),M(4,'Nebraska',12,'McNeese St','Nebraska'),
+     M(3,'Illinois',11,'VCU','Illinois'),M(2,'Houston',7,"Saint Mary's",'Houston')],
+    [M(4,'Nebraska',1,'Florida','Nebraska'),M(2,'Houston',3,'Illinois','Houston')],
+    [M(4,'Nebraska',2,'Houston','Houston')]
+  ],
+  midwest: [
+    [M(1,'Michigan',16,'UMBC','Michigan'),M(8,'Georgia',9,'St. Louis','St. Louis'),
+     M(5,'Texas Tech',12,'Akron','Texas Tech'),M(4,'Alabama',13,'Hofstra','Hofstra'),
+     M(3,'Virginia',14,'Wright St','Virginia'),M(6,'Tennessee',11,'Miami OH','Miami OH'),
+     M(7,'Kentucky',10,'Santa Clara','Kentucky'),M(2,'Iowa State',15,'Tenn. State','Iowa State')],
+    [M(1,'Michigan',9,'St. Louis','Michigan'),M(5,'Texas Tech',13,'Hofstra','Texas Tech'),
+     M(11,'Miami OH',3,'Virginia','Miami OH'),M(2,'Iowa State',7,'Kentucky','Iowa State')],
+    [M(1,'Michigan',5,'Texas Tech','Michigan'),M(2,'Iowa State',11,'Miami OH','Iowa State')],
+    [M(1,'Michigan',2,'Iowa State','Iowa State')]
+  ],
+  finalFour:{
+    sf1:{t1:'UConn',t2:'Houston',w:'Houston'},
+    sf2:{t1:'Purdue',t2:'Iowa State',w:'Iowa State'},
+    final:{t1:'Houston',t2:'Iowa State',w:'Houston'},
+    champion:'HOUSTON',
+    champColor:'var(--red)'
+  }
+});
+
+// ═══════ DARK HORSE ═══════
+renderFullBracket('bracket-dark',{
+  east: EAST_HOMER, // same as Homer East
+  west: [
+    [M(1,'Arizona',16,'LIU','Arizona'),M(8,'Villanova',9,'Utah State','Villanova'),
+     M(5,'Wisconsin',12,'High Point','High Point'),M(4,'Arkansas',13,'Hawaii','Arkansas'),
+     M(3,'Gonzaga',14,'Kennesaw St','Gonzaga'),M(6,'BYU',11,'Texas','BYU'),
+     M(7,'Miami FL',10,'Missouri','Missouri'),M(2,'Purdue',15,'Queens','Purdue')],
+    [M(1,'Arizona',8,'Villanova','Arizona'),M(4,'Arkansas',12,'High Point','Arkansas'),
+     M(3,'Gonzaga',6,'BYU','Gonzaga'),M(2,'Purdue',10,'Missouri','Purdue')],
+    [M(1,'Arizona',4,'Arkansas','Arizona'),M(3,'Gonzaga',2,'Purdue','Gonzaga')],
+    [M(1,'Arizona',3,'Gonzaga','Arizona')]
+  ],
+  south: SOUTH_HOMER, // same as Homer South
+  midwest: [
+    [M(1,'Michigan',16,'UMBC','Michigan'),M(8,'Georgia',9,'St. Louis','St. Louis'),
+     M(5,'Texas Tech',12,'Akron','Texas Tech'),M(4,'Alabama',13,'Hofstra','Hofstra'),
+     M(3,'Virginia',14,'Wright St','Virginia'),M(6,'Tennessee',11,'Miami OH','Tennessee'),
+     M(7,'Kentucky',10,'Santa Clara','Kentucky'),M(2,'Iowa State',15,'Tenn. State','Iowa State')],
+    [M(1,'Michigan',9,'St. Louis','Michigan'),M(5,'Texas Tech',13,'Hofstra','Texas Tech'),
+     M(3,'Virginia',6,'Tennessee','Virginia'),M(2,'Iowa State',7,'Kentucky','Iowa State')],
+    [M(1,'Michigan',5,'Texas Tech','Michigan'),M(2,'Iowa State',3,'Virginia','Iowa State')],
+    [M(1,'Michigan',2,'Iowa State','Michigan')]
+  ],
+  finalFour:{
+    sf1:{t1:'Duke',t2:'Florida',w:'Duke'},
+    sf2:{t1:'Arizona',t2:'Michigan',w:'Michigan'},
+    final:{t1:'Duke',t2:'Michigan',w:'Michigan'},
+    champion:'MICHIGAN',
+    champColor:'#3b82f6'
+  }
+});
+
+</script>
+</body>
+</html>
