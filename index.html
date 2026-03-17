@@ -52,6 +52,22 @@ body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 .fan-badge.purdue{background:var(--purdue-glow);color:var(--purdue-gold);border-color:rgba(206,184,136,0.35);}
 .fan-badge.miami{background:var(--miami-glow);color:#f87171;border-color:rgba(248,113,113,0.35);}
 
+/* Countdown & Value Props */
+.hero-countdown{margin-top:24px;position:relative;}
+.countdown-row{display:flex;justify-content:center;gap:16px;margin-bottom:16px;}
+.countdown-block{text-align:center;min-width:60px;}
+.countdown-num{font-size:1.8rem;font-weight:900;color:var(--basketball-orange);font-family:'JetBrains Mono',monospace;line-height:1;text-shadow:0 0 20px rgba(238,103,48,0.3);}
+.countdown-label{font-size:0.6rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-muted);margin-top:4px;}
+.countdown-status{font-size:0.8rem;color:var(--green);font-weight:600;letter-spacing:0.05em;animation:livePulse 2s ease-in-out infinite;}
+.value-props{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px;}
+.value-chip{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;font-size:0.78rem;font-weight:600;background:var(--surface);border:1px solid var(--border);transition:border-color 0.2s;}
+.value-chip:hover{border-color:var(--basketball-orange);}
+.value-chip .val{font-family:'JetBrains Mono',monospace;font-weight:800;}
+.value-chip.purdue-chip .val{color:var(--purdue-gold);}
+.value-chip.miami-chip .val{color:#f87171;}
+.value-chip.data-chip .val{color:var(--accent-bright);}
+.value-chip.odds-chip .val{color:var(--green);}
+
 /* ─── Container ─── */
 .container{max-width:1400px;margin:0 auto;padding:0 16px;}
 
@@ -237,24 +253,83 @@ footer .sources{max-width:700px;margin:0 auto;}
 
 /* ─── Responsive ─── */
 @media(max-width:768px){
-  .hero{padding:40px 16px 28px;}
-  .methodology .method-body{padding:0 16px 16px;}
-  .methodology summary{padding:16px 18px;font-size:0.95rem;}
-  .strategy-card{padding:20px;margin:16px 12px;}
-  .tab-btn{padding:8px 14px;font-size:0.74rem;}
-  .bracket-full-inner{grid-template-columns:1fr;grid-template-rows:auto;min-width:unset;}
-  .bracket-half{flex-direction:row !important;}
-  .bracket-half .region-label{writing-mode:horizontal-tb;transform:none !important;padding:8px 0;min-width:unset;width:100%;text-align:center;}
-  .bracket-center{padding:16px 8px;min-width:unset;}
+  .hero{padding:32px 12px 20px;}
+  .hero h1{font-size:1.8rem;}
+  .hero .subtitle{font-size:0.75rem;}
+  .basketball-spin{font-size:1.6rem;}
+  .methodology{margin:0 8px 24px;}
+  .methodology .method-body{padding:0 12px 12px;}
+  .methodology summary{padding:14px 14px;font-size:0.88rem;}
+  .strategy-card{padding:16px;margin:12px 8px;border-radius:12px;}
+  .strategy-card h3{font-size:0.95rem;}
+  .strategy-card .strategy-text{font-size:0.8rem;}
+  .strategy-card .ff-teams{gap:4px;}
+  .strategy-card .ff-team{padding:4px 10px;font-size:0.7rem;}
+  .strategy-card .upset-tag{padding:2px 8px;font-size:0.68rem;}
+  .tabs-wrapper{padding:8px 0;}
+  .tab-btn{padding:8px 12px;font-size:0.72rem;}
+  .tab-btn .tab-champ{font-size:0.6rem;}
+
+  /* Bracket: stack vertically, scroll each region horizontally */
+  .bracket-full{padding:4px 0;}
+  .bracket-full-inner{grid-template-columns:1fr;grid-template-rows:auto;min-width:unset;grid-template-areas:"east" "west" "center" "south" "midwest";}
+  .bracket-half{flex-direction:row !important;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:8px 4px;border-top:1px solid var(--border);}
+  .bracket-half.south-half{border-top:1px solid var(--border);}
+  .bracket-half.midwest-half{border-top:1px solid var(--border);}
+  .bracket-half .region-label{writing-mode:horizontal-tb;transform:none !important;padding:6px 0;min-width:unset;width:100%;text-align:center;font-size:0.8rem;}
+  .bracket-center{padding:20px 12px;min-width:unset;border-left:none;border-right:none;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);}
+  .bracket-center::before{display:none;}
   .rtl .round:last-child .matchup-box::after,
   .ltr .round:last-child .matchup-box::after{display:none;}
   .rtl .team-row{flex-direction:row;}
   .rtl .team-row .seed{text-align:left;}
   .rtl .team-row .team-name{text-align:left;}
-  .round{min-width:130px;}
-  .team-row{padding:3px 6px;font-size:0.68rem;}
-  .data-panel{padding:16px 18px;}
+  .bracket{min-width:600px;}
+  .round{min-width:120px;max-width:none;}
+  .team-row{padding:3px 5px;font-size:0.65rem;}
+  .team-row .seed{font-size:0.6rem;min-width:14px;}
+
+  /* Data panels */
+  .data-section{margin:20px 8px;}
+  .data-panel{padding:14px 14px;border-radius:10px;}
+  .data-panel h3{font-size:0.82rem;}
+  .prob-row{gap:8px;}
+  .prob-label{min-width:60px;font-size:0.7rem;}
+  .prob-track{height:20px;}
+  .prob-fill{font-size:0.62rem;padding-right:6px;}
+  .expert-grid{grid-template-columns:1fr;}
+  .expert-card{padding:10px 12px;}
+  .upset-table td{padding:6px 8px;font-size:0.75rem;}
+  .upset-table th{padding:6px 8px;font-size:0.62rem;}
+
+  /* Countdown / value props */
+  .countdown-num{font-size:1.4rem;}
+  .countdown-row{gap:12px;}
+  .value-props{gap:6px;}
+  .value-chip{padding:6px 10px;font-size:0.68rem;border-radius:8px;}
+
+  /* Feed */
+  .live-feed{margin:32px 8px 0;padding:0;}
+  .live-feed h2{font-size:1rem;}
+  .feed-card-header{padding:10px 14px;font-size:0.78rem;}
+  .feed-link{padding:10px 12px;gap:10px;}
+  .feed-link-icon{width:34px;height:34px;font-size:0.65rem;}
+  .feed-link-text{font-size:0.8rem;}
+  .feed-link-sub{font-size:0.65rem;}
+
+  /* Footer */
+  footer{padding:32px 12px;font-size:0.7rem;}
   .method-grid{grid-template-columns:1fr;}
+}
+
+/* Extra small screens */
+@media(max-width:400px){
+  .hero h1{font-size:1.5rem;}
+  .basketball-spin{font-size:1.2rem;}
+  .countdown-num{font-size:1.2rem;}
+  .value-chip{padding:5px 8px;font-size:0.62rem;}
+  .tab-btn{padding:6px 10px;font-size:0.68rem;}
+  .bracket{min-width:500px;}
 }
 
 /* ─── Basketball Theming ─── */
@@ -467,9 +542,15 @@ footer .sources{max-width:700px;margin:0 auto;}
 <header class="hero">
   <h1><span class="basketball-spin">&#127936;</span> CLAUDE MADNESS 2026 <span class="basketball-spin delay">&#127936;</span></h1>
   <p class="subtitle">AI-Powered Bracket Intelligence</p>
-  <div class="fan-badges">
-    <span class="fan-badge purdue">Boilermakers Fan</span>
-    <span class="fan-badge miami">RedHawks Fan</span>
+  <div class="hero-countdown">
+    <div class="countdown-row" id="countdown"></div>
+    <div class="value-props">
+      <div class="value-chip data-chip"><span class="val">100K+</span> simulations analyzed</div>
+      <div class="value-chip data-chip"><span class="val">7</span> experts tracked</div>
+      <div class="value-chip purdue-chip"><span class="val">+2500</span> Purdue (best value)</div>
+      <div class="value-chip miami-chip"><span class="val">31-1</span> Miami OH (Cinderella)</div>
+      <div class="value-chip odds-chip"><span class="val">5</span> AI-built brackets</div>
+    </div>
   </div>
 </header>
 
@@ -1274,6 +1355,46 @@ renderFullBracket('bracket-dark',{
   }
 });
 
+// ─── COUNTDOWN TIMER ───
+function updateCountdown(){
+  const el=document.getElementById('countdown');
+  if(!el)return;
+  // First Four: March 18, 2026 6:40 PM ET (first game)
+  // First Round: March 19, 2026 12:15 PM ET
+  const firstFour=new Date('2026-03-18T18:40:00-04:00');
+  const firstRound=new Date('2026-03-19T12:15:00-04:00');
+  const now=new Date();
+
+  if(now>=firstRound){
+    el.innerHTML='<div class="countdown-status">TOURNAMENT IN PROGRESS</div>';
+    return;
+  }
+
+  let target,label;
+  if(now>=firstFour){
+    target=firstRound;
+    label='FIRST ROUND TIPS OFF IN';
+  }else{
+    target=firstFour;
+    label='FIRST FOUR TIPS OFF IN';
+  }
+
+  const diff=target-now;
+  const d=Math.floor(diff/86400000);
+  const h=Math.floor((diff%86400000)/3600000);
+  const m=Math.floor((diff%3600000)/60000);
+  const s=Math.floor((diff%60000)/1000);
+
+  let blocks='';
+  if(d>0)blocks+=`<div class="countdown-block"><div class="countdown-num">${d}</div><div class="countdown-label">Days</div></div>`;
+  blocks+=`<div class="countdown-block"><div class="countdown-num">${String(h).padStart(2,'0')}</div><div class="countdown-label">Hours</div></div>`;
+  blocks+=`<div class="countdown-block"><div class="countdown-num">${String(m).padStart(2,'0')}</div><div class="countdown-label">Min</div></div>`;
+  blocks+=`<div class="countdown-block"><div class="countdown-num">${String(s).padStart(2,'0')}</div><div class="countdown-label">Sec</div></div>`;
+
+  el.innerHTML=`<div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:8px;">${label}</div>${blocks}`;
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
 </script>
 </body>
 </html>
